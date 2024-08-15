@@ -18,24 +18,22 @@ function playGame(playerChoice) {
   const rn = Math.floor(Math.random() * choices.length);
   const computerChoice = choices[rn];
 
-  //I should have added some colours on the resulted text too.
+  const results = document.querySelector(".result h2");
 
   //Game logic
   if (playerChoice === computerChoice) {
-    document.querySelector(
-      ".result h2"
-    ).textContent = `It's a draw. Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.textContent = `It's a draw. Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.style.color = "grey";
   } else if (
     (playerChoice === "Rock" && computerChoice === "Scissors") ||
     (playerChoice === "Paper" && computerChoice === "Rock") ||
     (playerChoice === "Scissors" && computerChoice === "Paper")
   ) {
-    document.querySelector(
-      ".result h2"
-    ).textContent = `Yay You Won! Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.textContent = `Yay You Won! Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.style.color = "green";
   } else {
-    document.querySelector(
-      ".result h2"
-    ).textContent = `Oh oh you lost! Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.textContent = `Oh oh you lost! Your choice was ${playerChoice} and Computer's choice was ${computerChoice}`;
+    results.style.color = "red";
   }
 }
+
